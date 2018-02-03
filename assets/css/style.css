@@ -1,0 +1,39 @@
+.picture {
+    background-color:#D6EAF8;
+    display: block;
+    border: 3px dashed grey;
+    height: 700px;
+}
+
+p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: center;
+    font-size: 22px;
+}
+
+.game { 
+    background-color: #D6EAF8;
+    display: block;
+    border: 3px dashed grey;
+    height: 700px;
+    text-align: center;
+}
+
+.container-fluid {
+    background-color: white;
+    text-align: center;
+}
+
+.container {
+    background-color: #D6EAF8;
+    height: 700px;
+}
+
+footer {
+    border: 2px solid grey;
+    margin-top: 20px;
+    color: #5DADE2;
+    display: block;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+

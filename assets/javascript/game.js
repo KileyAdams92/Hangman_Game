@@ -1,0 +1,76 @@
+
+var shipOptions = ["edmund fitzgerald", "john b cowle", "steamer vienna"]
+    
+
+
+var validLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+var points = 0;
+var attemptsLeft = 20;
+var lettersGuessed = [];
+
+var randomWord;
+var blankWord;
+var blankArray;
+function startGame() {
+    var randomNumber = Math.floor(Math.random() * 3);   
+    randomWord = shipOptions[randomNumber];
+    console.log(randomWord);
+    blankArray = [];
+    for (var i = 0; i < randomWord.length; i++) {
+        blankArray[i] = "_";
+    } 
+    blankWord = blankArray.join(" ");
+    document.querySelector("#word").innerHTML = blankWord;
+}
+ 
+
+document.onkeyup = function(event) {
+    var userGuess = event.key.toLowerCase();
+    lettersGuessed.push(userGuess);
+    var logLetters =
+    "<p> Letters already chosen : " + lettersGuessed + "</p>";
+    document.querySelector("#lettersGuessed").innerHTML = logLetters;
+    
+    console.log(randomWord.indexOf(userGuess));
+    if(validLetters.indexOf(userGuess) === -1) {
+        alert("Please press a key between a-z");
+    }
+    else {
+        console.log("positive key press");
+        attemptsLeft--;
+        var logAttempts =
+        "<p> Attempts remaining : " + attemptsLeft + "</p>";
+        document.querySelector("#results").innerHTML = logAttempts;
+        for (var i = 0; i < randomWord.length; i++) {
+            if(randomWord[i] === userGuess) {
+                randomWord[i] = blankWord[i];
+                blankArray.splice(i, 1, userGuess);
+                console.log(blankWord[i]);
+            } else {
+                return;
+            }
+            
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // END positive condition
+    }
+    if (attemptsLeft === 0) {
+        alert("GAME OVER - NICE TRY!");
+    }
+    // anything here will be executed on EVERY onkeyup
+
+}
+startGame();
