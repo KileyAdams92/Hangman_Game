@@ -1,5 +1,5 @@
 
-var shipOptions = ["edmund fitzgerald", "john b cowle", "steamer vienna"]
+var shipOptions = ["edmundfitzgerald", "johnbcowle", "steamervienna"]
     
 
 
@@ -43,14 +43,23 @@ document.onkeyup = function(event) {
         "<p> Attempts remaining : " + attemptsLeft + "</p>";
         document.querySelector("#results").innerHTML = logAttempts;
         for (var i = 0; i < randomWord.length; i++) {
+            //if userGuess === index of random word
+            //replace "_" with userGuess
             if(randomWord[i] === userGuess) {
-                randomWord[i] = blankWord[i];
+                // randomWord[i] = blankWord[i];
+                blankWord[i] = userGuess;
                 blankArray.splice(i, 1, userGuess);
-                console.log(blankWord[i]);
-            } else {
-                return;
-            }
-            
+                console.log(blankWord);
+                blankWord = blankArray.join(" ");
+                document.querySelector("#word").innerHTML = blankWord;
+            } 
+            //if user guesses all letters of one word {
+            //show a picture of corresponding ship
+            //automatically show new word
+            //}
+            if (attemptsLeft === 0) {
+        alert("GAME OVER - NICE TRY!");
+    }
         }
 
 
@@ -67,9 +76,7 @@ document.onkeyup = function(event) {
 
         // END positive condition
     }
-    if (attemptsLeft === 0) {
-        alert("GAME OVER - NICE TRY!");
-    }
+    
     // anything here will be executed on EVERY onkeyup
 
 }
