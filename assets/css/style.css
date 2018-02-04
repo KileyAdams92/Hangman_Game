@@ -4,6 +4,10 @@
     border: 3px dashed grey;
     height: 700px;
 }
+#photos {
+    width: 100%;
+    padding: 5px;
+}
 
 p {
     font-family: 'Open Sans Condensed', sans-serif;
@@ -17,6 +21,7 @@ p {
     border: 3px dashed grey;
     height: 700px;
     text-align: center;
+    padding-top: 70px;
 }
 
 .container-fluid {
